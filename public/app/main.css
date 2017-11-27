@@ -120,15 +120,21 @@ body {
     font-size: 1.2em;
 
 }   
+
+.subTitle {
+    font-size: 1.7em;
+}
+.active{
+    background-color:purple;
+    color:#ffffff;
+    }
 .navMenu-item a {
     text-decoration: none;   
     color:black;
 }
-.subTitle {
-    font-size: 1.7em;
+.active.navMenu-item a {
+    color:#ffffff;
 }
-.active{background-color:purple;}
-
 title {
     display: block;
     font-size: 1em;
