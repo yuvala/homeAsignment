@@ -1,7 +1,25 @@
 <div>
-     <h1> favorites:</h1></br>
-    
-    22222222 22222 22222 2222</br>
-dsdsdasdfas asfasdf
-name: {{name}};
+    <div class="favoriteTopArea">
+        <div class="subTitle"> favorites:</div>
+    </div>
+</div>
+
+<table ng-if="!isTileView" class="tableList">
+    <thead>
+      <tr class=row>
+        <td>date/time</td>
+        <td>Action</td>
+        <td>Website name</td>
+        <td>URL</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-class="$index % 2 == 0 ? 'cellEven' : 'odd'" ng-repeat="item in favoriteList | filter:favoriteSearch track by $index">
+        <td>{{item.time}}</td>
+        <td>{{item.action}}</td>
+        <td>{{item.websiteName}}</td>
+        <td>{{item.url}}</td>
+      </tr> 
+    </tbody>
+  </table>
 </div>

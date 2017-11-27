@@ -35,12 +35,12 @@ body {
 }
 
 .navArea {
+    background-color: gray;
     display:flex;  
-    flex-flow: column wrap  ;
-
+    flex-flow: column wrap;
+    padding-top: 0.8em;
 }
 .contentArea {
-    border:1px red solid;
     flex-grow: 1;
 }
 .mainContainer {
@@ -55,8 +55,6 @@ body {
      height:5em;
  }
 .favoriteTopArea > div {
-    background: gold;
-    border:1px pink solid;
     align-items:stretch;
     padding:15px;
 }
@@ -71,12 +69,8 @@ body {
     flex-grow: 0;
 }
 .favoriteTopArea > div:nth-of-type(3){
-    flex-grow:0;
-    
+    flex-grow:0;  
 }
- 
-
-
  .favoriteContent row cell:nth-of-type(1) {
      flex-grow: 1;
  }
@@ -112,12 +106,7 @@ body {
     width: 200px;
     border: 1px red solid;
 }
-.welcome {
-    background-color:red;
-    font-size: 7em;
-    padding:10px;
-    height: 300px
-}
+ 
 .navMenu {
     display: flex;
     flex-direction: row;
@@ -128,7 +117,7 @@ body {
      
     padding:10px;
     background-color: gray;  
-    font-size: 1.5em;
+    font-size: 1.2em;
 
 }   
 .navMenu-item a {
@@ -136,7 +125,7 @@ body {
     color:black;
 }
 .subTitle {
-    font-size: 2em;
+    font-size: 1.7em;
 }
 .active{background-color:purple;}
 
