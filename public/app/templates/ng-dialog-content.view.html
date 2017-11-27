@@ -1,0 +1,31 @@
+<div>
+     
+
+    <div ng-if="!isDialogType('delete')">
+        <div class="modalHeader">
+            <title>Edit website?</title>
+        </div>
+        <div class="modalBody">
+            <div>Website name:</div>
+            <input type="text" ng-model="currentItem.name">
+            <div>URL:</div>
+            <input type="text" ng-model="currentItem.url">
+        </div>
+        <div class="modalFooter">
+            <button class="ngdialog-button" ng-if="isDialogType('edit')"  ng-click="dialogUpdate()">Save changes</button>
+            <button class="ngdialog-button" ng-if="isDialogType('create')"  ng-click="dialogCreate()">Add website</button>
+            <button class="ngdialog-button" ng-click="dialogClose()">Cancel</button>
+        </div>
+    </div>
+    <div ng-if="isDialogType('delete')">
+        <div class="modalHeader">
+            <title>Remove favorite website?</title>     
+        <div class="modalBody">
+            this action will remove the favorite website permanently
+        </div>
+        <div class="modalFooter">
+            <button class="ngdialog-button" ng-click="dialogDelete()">Remove website</button>
+            <button class="ngdialog-button" ng-click="dialogClose()">Cancel</button>
+        </div>
+    </div>
+</div>

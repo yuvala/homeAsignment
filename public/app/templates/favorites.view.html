@@ -1,0 +1,47 @@
+<div>
+    <div class="favoriteTopArea">
+        <div class="subTitle">favorites sites:</div>
+        <div>
+            <input type="text" placeholder="search" ng-model="favoriteSearch">
+            <div> number displyed: {{favoriteList.length}}</div>
+        </div>
+        <div >
+        <button ng-click="toggleView()"> toggle view</button>
+        <button ng-click="create()">add +</button>
+        </div>
+    </div>
+     
+
+    <div ng-if="isTileView" class="TileView">
+        <div class="tile" ng-repeat="item in favoriteList  | filter:favoriteSearch track by $index">
+          <div>{{item.name}}</div>
+          <div>{{item.url}}</div>
+          <div class="buttonPlace">
+            <button ng-click="delete(item)">Delete</button>
+            <button ng-click="edit(item)" >Edit</button>
+            </div>  
+        </div>
+    </div>
+
+    <table ng-if="!isTileView" class="tableList">
+      <thead>
+        <tr class=row>
+          <td>name</td>
+          <td>Url</td>   
+          <td></td>          
+        </tr>
+      </thead>
+      <tbody >
+        <tr ng-class="$index % 2 == 0 ? 'cellEven' : 'odd'" ng-repeat="item in favoriteList | filter:favoriteSearch track by $index">
+          <td>{{item.name}}</td>
+          <td>{{item.url}}</td>
+          <td>
+            <button ng-click="delete(item)">Delete</button>
+            <button ng-click="edit(item)" >Edit</button>
+            </td>  
+        </tr>
+         
+      </tbody>
+    </table>
+ 
+ </div>

@@ -1,0 +1,175 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'mysqlcon.query(CREATE DATABASE mydb,',
+1 verbose cli   'function',
+1 verbose cli   '(err,',
+1 verbose cli   'result)',
+1 verbose cli   '{' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData mysqlcon.query(CREATE DATABASE mydb,
+8 silly fetchPackageMetaData function
+9 silly fetchPackageMetaData (err,
+10 silly fetchPackageMetaData result)
+11 silly fetchPackageMetaData {
+12 silly fetchOtherPackageData mysqlcon.query(CREATE DATABASE mydb,
+13 silly cache add args [ 'mysqlcon.query(CREATE DATABASE mydb,', null ]
+14 verbose cache add spec mysqlcon.query(CREATE DATABASE mydb,
+15 silly fetchNamedPackageData function
+16 silly mapToRegistry name function
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry data Result {
+19 silly mapToRegistry   raw: 'function',
+19 silly mapToRegistry   scope: null,
+19 silly mapToRegistry   escapedName: 'function',
+19 silly mapToRegistry   name: 'function',
+19 silly mapToRegistry   rawSpec: '',
+19 silly mapToRegistry   spec: 'latest',
+19 silly mapToRegistry   type: 'tag' }
+20 silly mapToRegistry uri https://registry.npmjs.org/function
+21 silly fetchOtherPackageData (err,
+22 silly cache add args [ '(err,', null ]
+23 verbose cache add spec (err,
+24 silly fetchOtherPackageData result)
+25 silly cache add args [ 'result)', null ]
+26 verbose cache add spec result)
+27 silly fetchOtherPackageData {
+28 silly cache add args [ '{', null ]
+29 verbose cache add spec {
+30 silly cache add parsed spec Result {
+30 silly cache add   raw: 'mysqlcon.query(CREATE DATABASE mydb,',
+30 silly cache add   scope: null,
+30 silly cache add   escapedName: null,
+30 silly cache add   name: null,
+30 silly cache add   rawSpec: 'mysqlcon.query(CREATE DATABASE mydb,',
+30 silly cache add   spec: 'C:\\dev\\projectAsignment\\mysqlcon.query(CREATE DATABASE mydb,',
+30 silly cache add   type: 'local' }
+31 silly cache add parsed spec Result {
+31 silly cache add   raw: '(err,',
+31 silly cache add   scope: null,
+31 silly cache add   escapedName: null,
+31 silly cache add   name: null,
+31 silly cache add   rawSpec: '(err,',
+31 silly cache add   spec: 'C:\\dev\\projectAsignment\\(err,',
+31 silly cache add   type: 'local' }
+32 silly cache add parsed spec Result {
+32 silly cache add   raw: 'result)',
+32 silly cache add   scope: null,
+32 silly cache add   escapedName: null,
+32 silly cache add   name: null,
+32 silly cache add   rawSpec: 'result)',
+32 silly cache add   spec: 'C:\\dev\\projectAsignment\\result)',
+32 silly cache add   type: 'local' }
+33 silly cache add parsed spec Result {
+33 silly cache add   raw: '{',
+33 silly cache add   scope: null,
+33 silly cache add   escapedName: null,
+33 silly cache add   name: null,
+33 silly cache add   rawSpec: '{',
+33 silly cache add   spec: 'C:\\dev\\projectAsignment\\{',
+33 silly cache add   type: 'local' }
+34 error addLocal Could not install C:\dev\projectAsignment\mysqlcon.query(CREATE DATABASE mydb,
+35 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\mysqlcon.query(CREATE DATABASE mydb,'
+35 silly fetchPackageMetaData     at Error (native)
+35 silly fetchPackageMetaData  error for mysqlcon.query(CREATE DATABASE mydb, { Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\mysqlcon.query(CREATE DATABASE mydb,'
+35 silly fetchPackageMetaData     at Error (native)
+35 silly fetchPackageMetaData   errno: -4058,
+35 silly fetchPackageMetaData   code: 'ENOENT',
+35 silly fetchPackageMetaData   syscall: 'open',
+35 silly fetchPackageMetaData   path: 'C:\\dev\\projectAsignment\\mysqlcon.query(CREATE DATABASE mydb,' }
+36 error addLocal Could not install C:\dev\projectAsignment\(err,
+37 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\(err,'
+37 silly fetchPackageMetaData     at Error (native)
+37 silly fetchPackageMetaData  error for (err, { Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\(err,'
+37 silly fetchPackageMetaData     at Error (native)
+37 silly fetchPackageMetaData   errno: -4058,
+37 silly fetchPackageMetaData   code: 'ENOENT',
+37 silly fetchPackageMetaData   syscall: 'open',
+37 silly fetchPackageMetaData   path: 'C:\\dev\\projectAsignment\\(err,' }
+38 error addLocal Could not install C:\dev\projectAsignment\result)
+39 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\result)'
+39 silly fetchPackageMetaData     at Error (native)
+39 silly fetchPackageMetaData  error for result) { Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\result)'
+39 silly fetchPackageMetaData     at Error (native)
+39 silly fetchPackageMetaData   errno: -4058,
+39 silly fetchPackageMetaData   code: 'ENOENT',
+39 silly fetchPackageMetaData   syscall: 'open',
+39 silly fetchPackageMetaData   path: 'C:\\dev\\projectAsignment\\result)' }
+40 error addLocal Could not install C:\dev\projectAsignment\{
+41 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\{'
+41 silly fetchPackageMetaData     at Error (native)
+41 silly fetchPackageMetaData  error for { { Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\{'
+41 silly fetchPackageMetaData     at Error (native)
+41 silly fetchPackageMetaData   errno: -4058,
+41 silly fetchPackageMetaData   code: 'ENOENT',
+41 silly fetchPackageMetaData   syscall: 'open',
+41 silly fetchPackageMetaData   path: 'C:\\dev\\projectAsignment\\{' }
+42 verbose request uri https://registry.npmjs.org/function
+43 verbose request no auth needed
+44 info attempt registry request try #1 at 1:47:57 AM
+45 verbose request id d2ce2d0ca51442f2
+46 http request GET https://registry.npmjs.org/function
+47 http 200 https://registry.npmjs.org/function
+48 verbose headers { server: 'nginx/1.10.1',
+48 verbose headers   'content-type': 'application/json',
+48 verbose headers   'last-modified': 'Wed, 28 Dec 2016 20:00:16 GMT',
+48 verbose headers   etag: 'W/"586419d0-20f2"',
+48 verbose headers   'content-encoding': 'gzip',
+48 verbose headers   'cache-control': 'max-age=300',
+48 verbose headers   'content-length': '1807',
+48 verbose headers   'accept-ranges': 'bytes',
+48 verbose headers   date: 'Sat, 25 Nov 2017 23:47:58 GMT',
+48 verbose headers   via: '1.1 varnish',
+48 verbose headers   age: '0',
+48 verbose headers   connection: 'keep-alive',
+48 verbose headers   'x-served-by': 'cache-hhn1544-HHN',
+48 verbose headers   'x-cache': 'MISS',
+48 verbose headers   'x-cache-hits': '0',
+48 verbose headers   'x-timer': 'S1511653678.238261,VS0,VE2',
+48 verbose headers   vary: 'Accept-Encoding, Accept' }
+49 silly get cb [ 200,
+49 silly get   { server: 'nginx/1.10.1',
+49 silly get     'content-type': 'application/json',
+49 silly get     'last-modified': 'Wed, 28 Dec 2016 20:00:16 GMT',
+49 silly get     etag: 'W/"586419d0-20f2"',
+49 silly get     'content-encoding': 'gzip',
+49 silly get     'cache-control': 'max-age=300',
+49 silly get     'content-length': '1807',
+49 silly get     'accept-ranges': 'bytes',
+49 silly get     date: 'Sat, 25 Nov 2017 23:47:58 GMT',
+49 silly get     via: '1.1 varnish',
+49 silly get     age: '0',
+49 silly get     connection: 'keep-alive',
+49 silly get     'x-served-by': 'cache-hhn1544-HHN',
+49 silly get     'x-cache': 'MISS',
+49 silly get     'x-cache-hits': '0',
+49 silly get     'x-timer': 'S1511653678.238261,VS0,VE2',
+49 silly get     vary: 'Accept-Encoding, Accept' } ]
+50 verbose get saving function to C:\Users\Yuval\AppData\Roaming\npm-cache\registry.npmjs.org\function\.cache.json
+51 verbose correctMkdir C:\Users\Yuval\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+52 silly rollbackFailedOptional Starting
+53 silly rollbackFailedOptional Finishing
+54 silly runTopLevelLifecycles Finishing
+55 silly install printInstalled
+56 verbose stack Error: ENOENT: no such file or directory, open 'C:\dev\projectAsignment\mysqlcon.query(CREATE DATABASE mydb,'
+56 verbose stack     at Error (native)
+57 verbose cwd C:\dev\projectAsignment
+58 error Windows_NT 6.1.7601
+59 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "mysqlcon.query(CREATE DATABASE mydb," "function" "(err," "result)" "{"
+60 error node v6.10.0
+61 error npm  v3.10.10
+62 error path C:\dev\projectAsignment\mysqlcon.query(CREATE DATABASE mydb,
+63 error code ENOENT
+64 error errno -4058
+65 error syscall open
+66 error enoent ENOENT: no such file or directory, open 'C:\dev\projectAsignment\mysqlcon.query(CREATE DATABASE mydb,'
+67 error enoent ENOENT: no such file or directory, open 'C:\dev\projectAsignment\mysqlcon.query(CREATE DATABASE mydb,'
+67 error enoent This is most likely not a problem with npm itself
+67 error enoent and is related to npm not being able to find a file.
+68 verbose exit [ -4058, true ]

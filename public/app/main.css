@@ -1,0 +1,161 @@
+html {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 14px;
+}
+body {
+    margin:0;
+   /* background-color: olive*/
+}
+
+
+ 
+.btn {
+    font-family: "MetricWeb-Regular", arial;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    font-family: "MetricWeb-Medium", arial;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6px 12px;
+    line-height: 1em;
+    color: rgba(0, 0, 0, 0.55);
+    cursor: default;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    white-space: nowrap;
+    background-color: #ffffff;
+    fill: #ffffff;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.navArea {
+    display:flex;  
+    flex-flow: column wrap  ;
+
+}
+.contentArea {
+    border:1px red solid;
+    flex-grow: 1;
+}
+.mainContainer {
+    display:flex;  
+    flex-flow: row nowrap;
+    height: 100vh;
+    width: 100vw;
+}
+ 
+ .favoriteTopArea {
+     display:flex;
+     height:5em;
+ }
+.favoriteTopArea > div {
+    background: gold;
+    border:1px pink solid;
+    align-items:stretch;
+    padding:15px;
+}
+
+
+
+
+.favoriteTopArea > div:nth-of-type(1){
+    flex-grow: 2;
+}
+.favoriteTopArea > div:nth-of-type(2){
+    flex-grow: 0;
+}
+.favoriteTopArea > div:nth-of-type(3){
+    flex-grow:0;
+    
+}
+ 
+
+
+ .favoriteContent row cell:nth-of-type(1) {
+     flex-grow: 1;
+ }
+ .favoriteContent row cell:nth-of-type(2) {
+     flex-grow: 2;
+ }
+ .favoriteContent row cell:nth-of-type(3) {
+     flex-grow: 0;
+ }
+ row {
+    display: flex;
+    padding: 0.5em;
+ }
+ .cellEven {
+  background-color:lightgrey;
+
+ }
+
+ .tableList {
+     width: 100%;
+ }
+ .tableList thead {
+     font-weight: bold;
+ }
+.TileView {
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:  space-between;
+}
+.tile {
+
+    height: 200px;
+    width: 200px;
+    border: 1px red solid;
+}
+.welcome {
+    background-color:red;
+    font-size: 7em;
+    padding:10px;
+    height: 300px
+}
+.navMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}   
+
+.navMenu-item {
+     
+    padding:10px;
+    background-color: gray;  
+    font-size: 1.5em;
+
+}   
+.navMenu-item a {
+    text-decoration: none;   
+    color:black;
+}
+.subTitle {
+    font-size: 2em;
+}
+.active{background-color:purple;}
+
+title {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+}
+.modalFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+ 
+
+@media  screen and (max-width: 480px) {
+ .navMenu-item {
+   
+    background-color: blue;
+    
+}   
+}
