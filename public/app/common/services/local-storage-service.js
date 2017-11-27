@@ -1,5 +1,4 @@
 app.service('LocalStorageSvc', [function () {
-
     this.get = function (key) {
         console.log('getting from: ', key);
         return JSON.parse(localStorage.getItem(key));
@@ -9,5 +8,4 @@ app.service('LocalStorageSvc', [function () {
         console.log('inserting to: ', key);
         localStorage.setItem(key, JSON.stringify(data));
     }
-
 }]);
