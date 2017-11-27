@@ -1,9 +1,8 @@
-app.service('FavoritesSvc', [function () {
+app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
     var favoriteLinks;
     var totalIndex = 0;
     var lastId = 0;
     var asignedFunction;
-    // using mock only once
     var mock = [
         {
             name: 'sql server',
@@ -49,7 +48,7 @@ app.service('FavoritesSvc', [function () {
 
     this.removeFav = function (item, success) {
         favoriteLinks = _.without(favoriteLinks, _.findWhere(favoriteLinks, { id: item.id }));
-        insertToLocalStorage(favoriteLinks);
+        LocalStorageSvc.set('myFav', favoriteLinks);
         success(favoriteLinks);
         asignedFunction(favoriteLinks.length);
     }
@@ -60,8 +59,7 @@ app.service('FavoritesSvc', [function () {
         });
         if (index !== -1) {
             favoriteLinks[index] = item;
-            //favoriteLinks.push(item);
-            insertToLocalStorage(favoriteLinks);
+            LocalStorageSvc.set('myFav', favoriteLinks);
             success(favoriteLinks);
         } else {
             failure('Entry already exists');
@@ -71,7 +69,7 @@ app.service('FavoritesSvc', [function () {
     this.createFav = function (item, success) {
         item.id = setId();
         favoriteLinks.push(item);
-        insertToLocalStorage(favoriteLinks);
+        LocalStorageSvc.set('myFav', favoriteLinks);
         success(favoriteLinks);
         asignedFunction(favoriteLinks.length);
     };
@@ -90,35 +88,24 @@ app.service('FavoritesSvc', [function () {
         localStorage.setItem('LastId', JSON.stringify(index));
     }
 
-    function getLastId() {
-        return JSON.parse(localStorage.getItem('LastId'));
-    }
-
     function setId() {
      var newId =  JSON.parse(localStorage.getItem('LastId'))+1; 
-     localStorage.setItem('LastId', JSON.stringify(newId));  
+     LocalStorageSvc.set('LastId',newId);  
       return newId;
     }
 
     function initMock() {
         if(!localStorage.getItem('myFav')) {
-            insertToLocalStorage(mock);
+            LocalStorageSvc.set('myFav', mock);
         }
-
-        favoriteLinks = getFromLocalStorage(); 
-
+ 
+        favoriteLinks = LocalStorageSvc.get('myFav'); 
         keepLastId(favoriteLinks);
     }
 
     function insertToLocalStorage(fav) {
         localStorage.setItem('myFav', JSON.stringify(fav));
     }
-
-    function getFromLocalStorage() {
-        return JSON.parse(localStorage.getItem('myFav'));
-    }
-
-
-
+ 
 }]
 );

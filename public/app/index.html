@@ -5,10 +5,11 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="libs/ng-dialog/css/ngDialog.min.css">
     <link rel="stylesheet" href="libs/ng-dialog/css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    
+
 <div class="mainContainer">
     <div class="navArea" ng-controller="NavCtrl as vm">
         <div class="navMenu-item" ng-class="{active:vm.isSelected(1)}">
@@ -30,6 +31,7 @@
     <script src="js/ActionLogController.js"></Script>
     <script src="js/dialogController.js"></Script>
     <script src="js/NavigationController.js"></Script>
+    <script src="common/services/local-storage-service.js"></Script>
     <script src="libs/ng-dialog/js/ngDialog.min.js"></script>
  
 </body>
