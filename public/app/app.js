@@ -4,7 +4,7 @@ var app = angular.module('myApp',[
         $stateProvider
         .state('favorites', {
             url:'/favorites',
-            templateUrl:'templates/favorites.view.html', 
+            templateUrl:'templates/favorite-websites.view.html', 
             controller:'FavoritesController'
         }) 
         .state('actionsLog', {
