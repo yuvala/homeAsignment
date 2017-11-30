@@ -66,7 +66,7 @@ app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
         item.id = setId();
         favoriteLinks.push(item);
         LocalStorageSvc.set('myFav', favoriteLinks);
-        success(favoriteLinks);
+        success(item);
         asignedFunction(favoriteLinks.length);
     };
 

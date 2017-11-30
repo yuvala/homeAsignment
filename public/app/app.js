@@ -10,7 +10,8 @@ var app = angular.module('myApp',[
         .state('actionsLog', {
             url:'/actionsLog',
             templateUrl:'templates/actions-log.view.html',
-            controller:'ActionLogController'
+            controller:'ActionLogController',
+            controllerAs:'nv'
         });
       
 

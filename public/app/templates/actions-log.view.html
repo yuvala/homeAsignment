@@ -1,10 +1,12 @@
 <div>
+  <div>
     <div class="favoriteTopArea">
-        <div class="subTitle"> favorites:</div>
+      <div class="subTitle"> favorites:</div>
     </div>
-</div>
-
-<table ng-if="!isTileView" class="tableList">
+    <button ng-click="nv.doSomething()">first btn</button>
+    <button ng-click="nv.doSomething2()">second btn</button>
+  </div>
+  <table ng-if="!isTileView" class="tableList">
     <thead>
       <tr class=row>
         <td>date/time</td>
@@ -14,12 +16,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-class="$index % 2 == 0 ? 'cellEven' : 'odd'" ng-repeat="item in favoriteList | filter:favoriteSearch track by $index">
+      <tr ng-class="$index % 2 == 0 ? 'cellEven' : 'odd'" ng-repeat="item in nv.actionLogs track by $index">
         <td>{{item.time}}</td>
         <td>{{item.action}}</td>
-        <td>{{item.websiteName}}</td>
+        <td>{{item.name}}</td>
         <td>{{item.url}}</td>
-      </tr> 
+      </tr>
     </tbody>
   </table>
+  {{nv.actionLogs}}
 </div>

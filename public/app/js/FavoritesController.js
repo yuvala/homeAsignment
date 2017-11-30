@@ -1,29 +1,36 @@
-app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', 'ngDialog',
-    function ($scope, $controller, FavoritesSvc, ngDialog) {
+app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', 'ngDialog','actionLogSvc',
+    function ($scope, $controller, FavoritesSvc, ngDialog, actionLogSvc) {
         var dialog = ngDialog;
-        $scope.isTileView = false;
-       
+        $scope.isTileView = false;      
         function dialogClose () {
             dialog.close();
         };
 
        $scope.delete = function (item) {
-           openDialog('delete', item, function(){
+           var action = 'delete';
+           openDialog(action, item, function(){
+               actionLogSvc.addAction(action, item);
                refresh();
            });     
         };
 
         $scope.edit = function (item) {
-            openDialog('edit', item);     
+           var action = 'edit'; 
+            openDialog(action, item, function(){
+                console.log('edit', $scope.favoriteList);
+                actionLogSvc.addAction(action, item);
+                refresh();
+           });    
         };
 
-        $scope.create = function (item) {  
-            openDialog('create', item, function(){
-                console.log('refresh', $scope.favoriteList);
+        $scope.create = function (item) {
+            var action = 'create'; 
+            openDialog(action, item, function(newItem){
+                console.log('create', $scope.favoriteList);
+                actionLogSvc.addAction(action, newItem);
                 refresh();
            });                  
         };
-
 
         function openDialog(type, item, successCallBack) {
             dialog.open({
@@ -36,13 +43,11 @@ app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', '
                         dialogType: type,
                         item: item || {name:'',url:''},
                         dialogClose: dialogClose,
-                        successCallBack:successCallBack
+                        successCallBack: successCallBack
                     }
                 })
             });
         }
-
-        
 
         $scope.toggleView = function () {
             $scope.isTileView = !$scope.isTileView;
@@ -51,13 +56,14 @@ app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', '
         function refresh(){
             FavoritesSvc.getList(function(data){
                 console.log('refresh', data);
-                 $scope.favoriteList = data;
+                $scope.favoriteList = data;
             });
         }
+
         function init(){
-            refresh();
-            
+            refresh();       
         }
+
         init();
         
     }]

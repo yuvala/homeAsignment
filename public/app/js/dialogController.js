@@ -12,10 +12,7 @@ app.controller('dialogController', ['$scope', 'data', 'FavoritesSvc', function (
         $scope.dialogClose = function () {
             data.dialogClose();
         };
- 
-        $scope.dialogClose = function () {
-            data.dialogClose();
-        };
+  
 
         $scope.dialogUpdate = function () {
             console.log('2:  ', $scope.favoriteList);
@@ -24,6 +21,7 @@ app.controller('dialogController', ['$scope', 'data', 'FavoritesSvc', function (
                 url: $scope.currentItem.url,
                 id: $scope.currentItem.id
             }, function (sucess) {
+                data.successCallBack();
                 $scope.dialogClose();
             })
         };
@@ -38,23 +36,16 @@ app.controller('dialogController', ['$scope', 'data', 'FavoritesSvc', function (
             FavoritesSvc.createFav({
                 name: $scope.currentItem.name,
                 url: $scope.currentItem.url
-            }, function () {
+            }, function (newItem) {
+                console.log('dialog crete');
+                data.successCallBack(newItem);
                 $scope.dialogClose();
             }, function(err){
                 console.log('eror',err);
             });
         };
-        $scope.dialogCreate2 = function () {
-            FavoritesSvc.createFav($scope.currentItem, function () {
-                $scope.dialogClose();
-            }, function(err){
-                console.log('eror',err);
-            });
-        };
-
-
+       
         $scope.isDialogType = function (dType) {
-            console.log('dialogType === dType', dialogType === dType);
             return dialogType === dType;
         };
         
