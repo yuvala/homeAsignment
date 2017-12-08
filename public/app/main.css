@@ -48,6 +48,7 @@ body {
 
 .contentArea .center {
     background: red;
+    overflow-y: auto;
 }
 
 .mainContainer {
@@ -131,7 +132,10 @@ body {
     font-size: 1.2em;
 
 }   
-
+.yuval {
+    display: flex;
+    flex-flow: nowrap column;
+}
 .subTitle {
     font-size: 1.7em;
 }

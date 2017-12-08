@@ -12,12 +12,12 @@
 
 <div class="mainContainer">
     <div class="navArea" ng-controller="NavCtrl as vm">
-        <div class="navMenu-item" ng-class="{active:vm.isSelected(1)}">
+        <button class="navMenu-item" ng-class="{active:vm.isSelected(1)}">
             <a ui-sref="favorites"   ng-click="vm.setSelected(1)">Favorites sites ({{vm.totalFavNum}})</a>
-        </div>
-        <div class="navMenu-item" ng-class="{active:vm.isSelected(2)}">
+        </button>
+        <button class="navMenu-item" ng-class="{active:vm.isSelected(2)}">
             <a ui-sref="actionsLog"  ng-click="vm.setSelected(2)">Actions log</a>
-        </div>         
+        </button>         
     </div>
     <div class="contentArea" ui-view></div>
 </div>
