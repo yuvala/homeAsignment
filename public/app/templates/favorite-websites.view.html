@@ -1,4 +1,4 @@
-<div>
+<div >
   <div class="favoriteTopArea">
     <div class="subTitle">favorites sites:</div>
     <div>
@@ -10,7 +10,7 @@
     </div>
   </div>
 
-
+<div class="center">
   <div ng-if="isTileView" class="TileView">
     <div class="tile" ng-repeat="item in favoriteList  | filter:favoriteSearch track by $index">
       <div>{{item.name}}</div>
@@ -43,4 +43,5 @@
     </tbody>
   </table>
 
+</div>
 </div>

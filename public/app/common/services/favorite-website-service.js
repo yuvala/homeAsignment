@@ -1,4 +1,5 @@
 app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
+    const keyName = 'myFav';
     var favoriteLinks;
     var totalIndex = 0;
     var lastId = 0;
@@ -44,7 +45,7 @@ app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
 
     this.removeFav = function (item, success) {
         favoriteLinks = _.without(favoriteLinks, _.findWhere(favoriteLinks, { id: item.id }));
-        LocalStorageSvc.set('myFav', favoriteLinks);
+        LocalStorageSvc.set(keyName, favoriteLinks);
         success(favoriteLinks);
         asignedFunction(favoriteLinks.length);
     }
@@ -55,7 +56,7 @@ app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
         });
         if (index !== -1) {
             favoriteLinks[index] = item;
-            LocalStorageSvc.set('myFav', favoriteLinks);
+            LocalStorageSvc.set(keyName, favoriteLinks);
             success(favoriteLinks);
         } else {
             failure('Entry already exists');
@@ -65,7 +66,7 @@ app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
     this.createFav = function (item, success) {
         item.id = setId();
         favoriteLinks.push(item);
-        LocalStorageSvc.set('myFav', favoriteLinks);
+        LocalStorageSvc.set(keyName, favoriteLinks);
         success(item);
         asignedFunction(favoriteLinks.length);
     };
@@ -91,12 +92,14 @@ app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
     }
 
     function initMock() {
-        if (!localStorage.getItem('myFav')) {
-            LocalStorageSvc.set('myFav', mock);
+        if (!localStorage.getItem(keyName)) {
+            LocalStorageSvc.set(keyName, mock);
         }
-        favoriteLinks = LocalStorageSvc.get('myFav');
+        favoriteLinks = LocalStorageSvc.get(keyName);
         keepLastId(favoriteLinks);
+        asignedFunction && asignedFunction(favoriteLinks.length);
     }
-
+    
+    initMock();
 }]
 );

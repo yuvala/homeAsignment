@@ -40,14 +40,25 @@ body {
     flex-flow: column wrap;
     padding-top: 0.8em;
 }
+ 
 .contentArea {
     flex-grow: 1;
+    display: flex;
 }
+
+.contentArea .center {
+    background: red;
+}
+
 .mainContainer {
     display:flex;  
     flex-flow: row nowrap;
     height: 100vh;
     width: 100vw;
+}
+.mainContainer > div {
+    display:flex;  
+    flex-direction: column;  
 }
  
  .favoriteTopArea {

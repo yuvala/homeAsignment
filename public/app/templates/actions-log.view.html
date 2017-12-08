@@ -3,25 +3,25 @@
     <div class="favoriteTopArea">
       <div class="subTitle"> favorites:</div>
     </div>
-    <button ng-click="nv.doSomething()">first btn</button>
-    <button ng-click="nv.doSomething2()">second btn</button>
   </div>
-  <table ng-if="!isTileView" class="tableList">
-    <thead>
-      <tr class=row>
-        <td>date/time</td>
-        <td>Action</td>
-        <td>Website name</td>
-        <td>URL</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-class="$index % 2 == 0 ? 'cellEven' : 'odd'" ng-repeat="item in nv.actionLogs track by $index">
-        <td>{{item.time}}</td>
-        <td>{{item.action}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.url}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="center">
+    <table ng-if="!isTileView" class="tableList">
+      <thead>
+        <tr class=row>
+          <td>date/time</td>
+          <td>Action</td>
+          <td>Website name</td>
+          <td>URL</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-class="$index % 2 == 0 ? 'cellEven' : 'odd'" ng-repeat="item in nv.actionLogs track by $index">
+          <td>{{item.time}}</td>
+          <td>{{item.action}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.url}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

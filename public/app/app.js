@@ -1,6 +1,7 @@
 var app = angular.module('myApp',[
     'ui.router','ngDialog']).
     config(['$stateProvider', function($stateProvider, $urlRouterProvider, ngDialog){
+       
         $stateProvider
         .state('favorites', {
             url:'/favorites',
@@ -13,6 +14,8 @@ var app = angular.module('myApp',[
             controller:'ActionLogController',
             controllerAs:'nv'
         });
+         
+        
       
 
     }]);  

@@ -13,9 +13,6 @@ app.controller('NavCtrl', ['$scope', 'FavoritesSvc',
 
         function init() {
             FavoritesSvc.asignToTotalFavNumChanges(setTotalFavNum);
-            // FavoritesSvc.getTotalFavNum(function (num) {
-            //     vm.totalFavNum = num;
-            // });
         }
         function setTotalFavNum(num) {
             vm.totalFavNum = num;
