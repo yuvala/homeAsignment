@@ -1,7 +1,7 @@
 var app = angular.module('myApp',[
     'ui.router','ngDialog']).
-    config(['$stateProvider', function($stateProvider, $urlRouterProvider, ngDialog){
-       
+    config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider, ngDialog){
+        $urlRouterProvider.otherwise('favorites');
         $stateProvider
         .state('favorites', {
             url:'/favorites',
