@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
+
 <head>
+    <meta name="viewport" content="width=device-width" />
     <title>angular js yuval example</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="libs/ng-dialog/css/ngDialog.min.css">
@@ -10,22 +12,22 @@
 
 <body>
 
-<div class="mainContainer">
-    <div class="navArea" ng-controller="NavCtrl as vm">
-        <button class="navMenu-item" ng-class="{active:vm.isSelected(1)}">
-            <a ui-sref="favorites"   ng-click="vm.setSelected(1)">Favorites sites ({{vm.totalFavNum}})</a>
-        </button>
-        <button class="navMenu-item" ng-class="{active:vm.isSelected(2)}">
-            <a ui-sref="actionsLog"  ng-click="vm.setSelected(2)">Actions log</a>
-        </button>         
+    <div class="mainContainer">
+        <div class="navArea" ng-controller="NavCtrl as vm">
+            <div class="navMenu-item"  ng-class="{active:vm.isSelected('favorites')}"  ng-click="vm.navTo('favorites')">
+                Favorites sites ({{vm.totalFavNum}})
+            </div>
+            <div class="navMenu-item"  ng-class="{active:vm.isSelected('actionsLog')}"  ng-click="vm.navTo('actionsLog')">
+                 Actions log  
+            </div>
+        </div>
+        <div class="contentArea" ui-view></div>
     </div>
-    <div class="contentArea" ui-view></div>
-</div>
-    
+
     <script src="libs/underscore/underscore-min.js"></Script>
     <script src="libs/angular/angular.min.js"></Script>
     <script src="libs/angular/angular-ui-router/1.0.3/angular-ui-router.min.js"></Script>
-    
+
     <script src="app.js"></Script>
 
     <script src="controllers/favorites-controller.js"></Script>
@@ -39,7 +41,7 @@
     <script src="common/services/action-log-service.js"></Script>
 
     <script src="libs/ng-dialog/js/ngDialog.min.js"></script>
- 
+
 </body>
 
 </html>

@@ -2,12 +2,20 @@ html {
      font-family: Arial, Helvetica, sans-serif;
      font-size: 14px;
 }
+
+* {
+    box-sizing: border-box;
+  }
 body {
     margin:0;
    /* background-color: olive*/
 }
-
-
+title, url {
+    display: block;
+}
+button, .navMenu-item {
+    cursor: context-menu;
+}
  
 .btn {
     font-family: "MetricWeb-Regular", arial;
@@ -22,7 +30,6 @@ body {
     padding: 6px 12px;
     line-height: 1em;
     color: rgba(0, 0, 0, 0.55);
-    cursor: default;
     border: 1px solid rgba(0, 0, 0, 0.12);
     white-space: nowrap;
     background-color: #ffffff;
@@ -44,10 +51,11 @@ body {
 .contentArea {
     flex-grow: 1;
     display: flex;
+    flex-direction: column;  
 }
 
 .contentArea .center {
-    background: red;
+    /* background: red; */
     overflow-y: auto;
 }
 
@@ -57,10 +65,10 @@ body {
     height: 100vh;
     width: 100vw;
 }
-.mainContainer > div {
+/* .mainContainer > div {
     display:flex;  
     flex-direction: column;  
-}
+} */
  
  .favoriteTopArea {
      display:flex;
@@ -107,16 +115,11 @@ body {
  .tableList thead {
      font-weight: bold;
  }
+
 .TileView {
     display:flex;
     flex-flow: row wrap;
-    justify-content:  space-between;
-}
-.tile {
-
-    height: 200px;
-    width: 200px;
-    border: 1px red solid;
+    /* justify-content:  space-between; */
 }
  
 .navMenu {
@@ -126,21 +129,18 @@ body {
 }   
 
 .navMenu-item {
-     
+   
     padding:10px;
     background-color: gray;  
     font-size: 1.2em;
 
 }   
-.yuval {
-    display: flex;
-    flex-flow: nowrap column;
-}
+ 
 .subTitle {
     font-size: 1.7em;
 }
 .active{
-    background-color:purple;
+    background-color:#3498db;
     color:#ffffff;
     }
 .navMenu-item a {
@@ -150,22 +150,94 @@ body {
 .active.navMenu-item a {
     color:#ffffff;
 }
-title {
-    display: block;
-    font-size: 1em;
-    font-weight: bold;
+.tile {
+    height: 132px;
+    width: 200px;
+    border: 1px gray solid;
+    border-radius: 10px;
+    margin: 11px;
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
 }
+
+.tile title {
+    font-size: 1.3em;
+}
+.tile url {
+    flex-grow:1;
+}
+
+
+
 .modalFooter {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    margin-top: 27px;
+}
+
+
+button {
+    background: #3498db;
+    /* background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9); */
+    /* -webkit-border-radius: 28;
+    -moz-border-radius: 28; */
+    border-radius: 10px;
+    font-family: Arial;
+    color: #ffffff;
+    text-decoration: none;
+    border-width: 0px;
+
+    
+    font-size: .8em;
+    letter-spacing: .1em;
+    line-height: 1em;
+    margin: 0 0 0 .5em;
+    padding: .75em 2em;
+    text-transform: uppercase;
+}
+td {
+    padding: 11px 10px;
+}
+
+
+@media  only screen 
+    and (max-width: 768px)
+    and (max-width: 768px) {
+        body{ 
+            background: orange;
+        }
+        .mainContainer{
+            flex-flow: column nowrap;
+        }
+        .navArea {
+            flex-direction: row;
+            padding-top: 0;
+        }
+        .subTitle {display:none}
+        
+        .navMenu-item {
+            flex-grow: 1;
+            background-color: blue;
+            
+        }   
 }
  
 
-@media  screen and (max-width: 480px) {
- .navMenu-item {
-   
-    background-color: blue;
-    
-}   
-}
+
+
+/* Portrait */
+/* @media screen 
+    and (max-device-width: 360px) 
+      and (device-height: 640px)   
+    and (-webkit-device-pixel-ratio: 4) 
+    and (orientation: portrait) {
+        body{ 
+            background: red;
+       }
+} */
