@@ -1,4 +1,4 @@
-app.service('actionLogSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
+app.service('actionLogSvc', ['LocalStorageSvc', 'TimeStampSvc', function (LocalStorageSvc, timeStampSvc) {
     
     var actionLogs;
     this.getList = function (succsessCallBack) {
@@ -11,7 +11,7 @@ app.service('actionLogSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
     this.addAction = function (actioName, item) {
         var newLog = angular.copy(item);
         newLog.action = actioName;
-        newLog.time = '15:50';
+        newLog.time = new Date().getTime();
         actionLogs.push(newLog);
         LocalStorageSvc.set('action-log', actionLogs);
         console.log('add action:' + newLog.action );

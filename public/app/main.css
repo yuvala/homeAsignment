@@ -28,7 +28,7 @@ button, .navMenu-item {
     cursor: context-menu;
 }
 
- .icon {
+.icon {
     font-family: 'Glyphter';
     text-transform: initial;
  }
@@ -100,12 +100,15 @@ button, .navMenu-item {
 
 .favoriteTopArea > div:nth-of-type(1){
     flex-grow: 2;
+     
 }
 .favoriteTopArea > div:nth-of-type(2){
     flex-grow: 0;
+    
 }
 .favoriteTopArea > div:nth-of-type(3){
     flex-grow:0;  
+     
 }
  .favoriteContent row cell:nth-of-type(1) {
      flex-grow: 1;
@@ -154,6 +157,7 @@ button, .navMenu-item {
 .subTitle {
     font-size: 1.7em;
 }
+
 .active{
     background-color:#3498db;
     color:#ffffff;
@@ -162,6 +166,7 @@ button, .navMenu-item {
 .active.navMenu-item a {
     color:#ffffff;
 }
+
 .tile {
     height: 132px;
     width: 200px;
@@ -205,7 +210,6 @@ button {
     text-decoration: none;
     border-width: 0px;
 
-    
     font-size: .8em;
     letter-spacing: .1em;
     line-height: 1em;
@@ -215,6 +219,7 @@ button {
 }
 td {
     padding: 11px 10px;
+    word-break: break-word;
 }
 
 
@@ -230,16 +235,33 @@ td {
         .navArea {
             flex-direction: row;
             padding-top: 0;
+            flex-shrink: 0;
         }
         .subTitle {display:none}
-        .favoriteTopArea > div{
-            flex-grow:1;   
-        }
+         
         .navMenu-item {
             flex-grow: 1;
-            background-color: blue;
-            
+            flex-basis: 0;
+            height: 2.5em;
+            text-align: center;
         }   
+        .favoriteTopArea {
+            flex-shrink: 0;
+        }
+        .favoriteTopArea > div:nth-of-type(2) {
+            flex-grow: 1;
+        }
+        .favoriteTopArea > div:nth-of-type(2) input{
+            font-size:1.2em;
+            width:100%;
+        }
+        .favoriteTopArea > div:nth-of-type(3) {
+            white-space: nowrap;
+        }
+        .favoriteTopArea > div {
+            padding: 8px;
+            height: 4em;
+        }
 }
  
 

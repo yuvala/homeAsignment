@@ -15,7 +15,7 @@ app.controller('NavCtrl', ['$scope', '$state', 'FavoritesSvc',
  
         vm.navTo = function (sref) {
             $state.go(sref);
-            setSelected(sref)
+            setSelected(sref);
         };
 
         function init() {
