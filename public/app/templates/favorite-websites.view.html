@@ -1,12 +1,12 @@
  
   <div class="favoriteTopArea">
-    <div class="subTitle">favorites sites:</div>
+    <div class="subTitle">Favorites sites</div>
     <div>
       <input type="text" placeholder="search" ng-model="favoriteSearch">
     </div>
     <div>
-      <button ng-click="toggleView()"> toggle view</button>
-      <button ng-click="create()">add +</button>
+      <button class="icon" ng-click="toggleView()">{{isTileView ? 'D':'C'}}</button>
+      <button class="icon" ng-click="create()">E</button>
     </div>
   </div>
 
@@ -16,8 +16,8 @@
       <title>{{item.name}}</title>
       <url>{{item.url}}</url>
       <div class="buttonPlace"  ng-controller="NavCtrl as vm">
-        <button class="ngdialog-button" ng-click="delete(item)">Delete</button>
-        <button ng-click="edit(item)">Edit</button>
+        <button class="icon" ng-click="delete(item)">B</button>
+        <button class="icon" ng-click="edit(item)">A</button>
       </div>
     </div>
   </div>
@@ -35,8 +35,8 @@
         <td>{{item.name}}</td>
         <td>{{item.url}}</td>
         <td>
-          <button ng-click="delete(item)">Delete</button>
-          <button ng-click="edit(item)">Edit</button>
+          <button class="icon" ng-click="delete(item)">B</button>
+          <button class="icon" ng-click="edit(item)">A</button>
         </td>
       </tr>
 
