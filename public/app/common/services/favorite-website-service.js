@@ -1,74 +1,59 @@
-app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
+app.service('FavoritesSvc', ['LocalStorageSvc','FavoriteEntity', function (LocalStorageSvc, FavoriteEntity) {
     const keyName = 'myFav';
     var favoriteLinks;
     var totalIndex = 0;
     var lastId = 0;
     var asignedFunction;
-    var mock = [
-        {
-            name: 'sql server',
-            url: 'http://csharp-video-tutorials.blogspot.co.il/2016/04/angularjs-ui-router-tutorial.html',
-            id: 1
-
-        },
-        {
-            name: 'angularjs',
-            url: 'https://www.webcodegeeks.com/javascript/angular-js/angularjs-ui-router-example/',
-            id: 2
-
-        }, {
-            name: 'CSS flex-grow Property',
-            url: 'https://www.w3schools.com/cssref/css3_pr_flex-grow.asp',
-            id: 3
-
-        }, {
-            name: 'Flex grid',
-            url: 'http://styleboxproject.com/#/components/flex%20grid',
-            id: 4
-
-        }, {
-            name: 'Flexbox Tutorial - Building a simple layout with Flexbox',
-            url: 'https://www.youtube.com/watch?v=JqJNhM8i-nc&t=343s',
-            id: 5
-
-        }
-
-    ];
-
+ 
     this.getList = function (succsessCallBack) {
-        if (!favoriteLinks) {
-            initMock();
-        }
-        succsessCallBack(favoriteLinks);
-        asignedFunction(favoriteLinks.length);
+        FavoriteEntity.get({},function(result){
+            favoriteLinks = result;
+            succsessCallBack(favoriteLinks);
+            
+        });
+        // if (!favoriteLinks) {
+        //     init();
+        // }
+        // succsessCallBack(favoriteLinks);
+        // asignedFunction(favoriteLinks.length);
     };
 
     this.removeFav = function (item, success) {
-        favoriteLinks = _.without(favoriteLinks, _.findWhere(favoriteLinks, { id: item.id }));
-        LocalStorageSvc.set(keyName, favoriteLinks);
-        success(favoriteLinks);
-        asignedFunction(favoriteLinks.length);
+        // favoriteLinks = _.without(favoriteLinks, _.findWhere(favoriteLinks, { id: item.id }));
+        // LocalStorageSvc.set(keyName, favoriteLinks);
+        // success(favoriteLinks);
+        // asignedFunction(favoriteLinks.length);
     }
 
     this.updateFav = function (item, success, failure) {
-        var index = _.findIndex(favoriteLinks, {
-            id: item.id
+        FavoriteEntity.update(item, function(result){
+            favoriteLinks = result;
+            success(item);
         });
-        if (index !== -1) {
-            favoriteLinks[index] = item;
-            LocalStorageSvc.set(keyName, favoriteLinks);
-            success(favoriteLinks);
-        } else {
-            failure('Entry already exists');
-        }
+        // var index = _.findIndex(favoriteLinks, {
+        //     id: item.id
+        // });
+        // if (index !== -1) {
+        //     favoriteLinks[index] = item;
+        //     LocalStorageSvc.set(keyName, favoriteLinks);
+        //     success(favoriteLinks);
+        // } else {
+        //     failure('Entry already exists');
+        // }
     };
 
     this.createFav = function (item, success) {
-        item.id = setId();
-        favoriteLinks.push(item);
-        LocalStorageSvc.set(keyName, favoriteLinks);
-        success(item);
-        asignedFunction(favoriteLinks.length);
+        // item.id = setId();
+        // favoriteLinks.push(item);
+        // LocalStorageSvc.set(keyName, favoriteLinks);
+        // success(item);
+        // asignedFunction(favoriteLinks.length);
+
+        FavoriteEntity.create(item, function(result){
+            favoriteLinks = result;
+            success(item);
+        });
+        
     };
 
     this.asignToTotalFavNumChanges = function name(fn) {
@@ -91,15 +76,22 @@ app.service('FavoritesSvc', ['LocalStorageSvc', function (LocalStorageSvc) {
         return newId;
     }
 
-    function initMock() {
-        if (!localStorage.getItem(keyName)) {
-            LocalStorageSvc.set(keyName, mock);
-        }
-        favoriteLinks = LocalStorageSvc.get(keyName);
-        keepLastId(favoriteLinks);
-        asignedFunction && asignedFunction(favoriteLinks.length);
+    function init() {
+        FavoriteEntity.get({},function(result){
+            favoriteLinks = result;
+            
+        });
+
+
+
+        // if (!localStorage.getItem(keyName)) {
+        //     LocalStorageSvc.set(keyName, mock);
+        // }
+      //  favoriteLinks = LocalStorageSvc.get(keyName);
+        // keepLastId(favoriteLinks);
+        // asignedFunction && asignedFunction(favoriteLinks.length);
     }
     
-    initMock();
+    init();
 }]
 );
