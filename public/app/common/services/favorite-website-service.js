@@ -19,6 +19,11 @@ app.service('FavoritesSvc', ['LocalStorageSvc','FavoriteEntity', function (Local
     };
 
     this.removeFav = function (item, success) {
+        FavoriteEntity.delete(
+            {id : item.id}, function(result){
+            favoriteLinks = _.without(favoriteLinks, _.findWhere(favoriteLinks, { id: item.id }));
+            success(item);
+        });
         // favoriteLinks = _.without(favoriteLinks, _.findWhere(favoriteLinks, { id: item.id }));
         // LocalStorageSvc.set(keyName, favoriteLinks);
         // success(favoriteLinks);

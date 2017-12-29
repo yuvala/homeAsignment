@@ -14,28 +14,17 @@ module.exports = function (app) {
 	/* API */
 
 	// get all contacts
-	app.get('/api/favorites', function (req, res) {	 
-		pool.connect(function(err , client , done){
-			if(err) {
-				return console.error('error fetching client from pool', err);
-			}			 
-			client.query('SELECT * FROM favorite_websites',  function(err, result){				 
-				if(err) {
-					return console.error('error running query', err, result);
-				}			 
-				res.send(result.rows);
-				done();
-			});
-		});		
+	app.get('/api/favorites', function (req, res) {	
+	 	getfromDb(res);
 	});
 
 	app.post('/api/favorites', function (req, res) {
-		console.log(req.body);	 
+		console.log('POST',req.body);	 
 		pool.connect(function(err , client , done){
 			if(err) {
 				return console.error('error fetching client from pool', err);
 			}			 
-			client.query('INSERT INTO favorite_websites (name, url) VALUES ('+ req.body.name + ',' + req.body.url +')',  function(err, result){				 
+			client.query('INSERT INTO favorite_websites (name, url) VALUES (($1),($2))',[req.body.name , req.body.url],  function(err, result){				 
 				if(err) {
 					return console.error('error running query', err, result);
 				}			 
@@ -63,13 +52,17 @@ module.exports = function (app) {
 
 	app.delete('/api/favorites/:id', function (req, res) {		 	 
 		pool.connect(function(err , client , done){
+			console.log('req.params', req.params);		 
+			console.log('req.query', req.query);		 
+			
 			if(err) {
 				return console.error('error fetching client from pool:', err);
 			}			 
-		 	client.query('DELETE FROM  favorite_websites  WHERE id = ($1)' ,[req.body.id]  , function(err, result){				 
+		 	client.query('DELETE FROM  favorite_websites  WHERE id = ($1)' ,[req.params.id]  , function(err, result){				 
 				if(err) {
 					return console.error('error running query', err, result);
-				}			 
+				}	
+				console.log('result.rows', result.rows);
 				res.send(result.rows);
 				done();
 			});
@@ -77,22 +70,31 @@ module.exports = function (app) {
 		
 	});
 
-	// get all contacts
-	app.get('/api/contacts', function (req, res) {
-
-		res.send('get /api/contacts');
-	});
-
-	// get contact form data and do someething ...
-	app.post('/api/contact', function (req, res) {
-
-		res.send('post /api/contacts');
-	});
-
+	 
+	 
 
 	/* APPLICATION */
 	app.get('*', function (req, res) {
 		// load index.html otherwise
 		res.sendfile('./public/app/index.html');
 	});
+
+
+
+	function getfromDb(res){
+		pool.connect(function(err , client , done){
+			 
+			if(err) {
+				return console.error('error fetching client from pool', err);
+			}			 
+			client.query('SELECT * FROM favorite_websites',  function(err, result){				 
+				if(err) {
+					return console.error('error running query', err, result);
+				}	
+				res.send(result.rows);
+				done();
+			});
+		});	
+
+	};
 };
