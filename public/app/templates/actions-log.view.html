@@ -18,7 +18,7 @@
         <tr ng-class="$index % 2 == 0 ? 'cellEven' : 'odd'" ng-repeat="item in nv.actionLogs | orderBy:item.time:true">
           <td>{{item.time}}</td>
           <td>{{item.action}}</td>
-          <td>{{item.name}}</td>
+          <td>{{item.web_name}}</td>
           <td>{{item.url}}</td>
         </tr>
       </tbody>

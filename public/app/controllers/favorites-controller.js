@@ -1,5 +1,5 @@
-app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', 'ngDialog','actionLogSvc',
-    function ($scope, $controller, FavoritesSvc, ngDialog, actionLogSvc) {
+app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', 'ngDialog', 
+    function ($scope, $controller, FavoritesSvc, ngDialog) {
         var dialog = ngDialog;
         $scope.isTileView = false;      
         function dialogClose () {
@@ -9,7 +9,6 @@ app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', '
        $scope.delete = function (item) {
            var action = 'delete';
            openDialog(action, item, function(){
-               actionLogSvc.addAction(action, item);
                refresh();
            });     
         };
@@ -17,8 +16,6 @@ app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', '
         $scope.edit = function (item) {
            var action = 'edit'; 
             openDialog(action, item, function(){
-                console.log('edit', $scope.favoriteList);
-                actionLogSvc.addAction(action, item);
                 refresh();
            });    
         };
@@ -26,8 +23,6 @@ app.controller('FavoritesController', ['$scope','$controller', 'FavoritesSvc', '
         $scope.create = function (item) {
             var action = 'create'; 
             openDialog(action, item, function(newItem){
-                console.log('create', $scope.favoriteList);
-                actionLogSvc.addAction(action, newItem);
                 refresh();
            });                  
         };

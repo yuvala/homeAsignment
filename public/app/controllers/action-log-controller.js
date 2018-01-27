@@ -5,7 +5,7 @@ app.controller('ActionLogController', ['$scope', 'actionLogSvc',
        
         function getActionLog() {
             actionLogSvc.getList(function(data) {
-                //ctrl.actionLogs = angular.copy(data);
+                console.log(':::::::',data);
                 ctrl.actionLogs = _.forEach(angular.copy(data), function(entry) {
                     entry.time = moment(entry.time).format('HH:m:s  DD.MM');
                     console.log(entry.time);

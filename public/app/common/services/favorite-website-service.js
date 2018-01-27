@@ -8,14 +8,8 @@ app.service('FavoritesSvc', ['LocalStorageSvc','FavoriteEntity', function (Local
     this.getList = function (succsessCallBack) {
         FavoriteEntity.get({},function(result){
             favoriteLinks = result;
-            succsessCallBack(favoriteLinks);
-            
+            succsessCallBack(favoriteLinks);           
         });
-        // if (!favoriteLinks) {
-        //     init();
-        // }
-        // succsessCallBack(favoriteLinks);
-        // asignedFunction(favoriteLinks.length);
     };
 
     this.removeFav = function (item, success) {
@@ -24,10 +18,6 @@ app.service('FavoritesSvc', ['LocalStorageSvc','FavoriteEntity', function (Local
             favoriteLinks = _.without(favoriteLinks, _.findWhere(favoriteLinks, { id: item.id }));
             success(item);
         });
-        // favoriteLinks = _.without(favoriteLinks, _.findWhere(favoriteLinks, { id: item.id }));
-        // LocalStorageSvc.set(keyName, favoriteLinks);
-        // success(favoriteLinks);
-        // asignedFunction(favoriteLinks.length);
     }
 
     this.updateFav = function (item, success, failure) {
@@ -35,25 +25,10 @@ app.service('FavoritesSvc', ['LocalStorageSvc','FavoriteEntity', function (Local
             favoriteLinks = result;
             success(item);
         });
-        // var index = _.findIndex(favoriteLinks, {
-        //     id: item.id
-        // });
-        // if (index !== -1) {
-        //     favoriteLinks[index] = item;
-        //     LocalStorageSvc.set(keyName, favoriteLinks);
-        //     success(favoriteLinks);
-        // } else {
-        //     failure('Entry already exists');
-        // }
     };
 
     this.createFav = function (item, success) {
-        // item.id = setId();
-        // favoriteLinks.push(item);
-        // LocalStorageSvc.set(keyName, favoriteLinks);
-        // success(item);
-        // asignedFunction(favoriteLinks.length);
-
+ 
         FavoriteEntity.create(item, function(result){
             favoriteLinks = result;
             success(item);
@@ -86,15 +61,6 @@ app.service('FavoritesSvc', ['LocalStorageSvc','FavoriteEntity', function (Local
             favoriteLinks = result;
             
         });
-
-
-
-        // if (!localStorage.getItem(keyName)) {
-        //     LocalStorageSvc.set(keyName, mock);
-        // }
-      //  favoriteLinks = LocalStorageSvc.get(keyName);
-        // keepLastId(favoriteLinks);
-        // asignedFunction && asignedFunction(favoriteLinks.length);
     }
     
     init();

@@ -1,24 +1,16 @@
-app.service('actionLogSvc', ['LocalStorageSvc', 'TimeStampSvc', function (LocalStorageSvc, timeStampSvc) {
+app.service('actionLogSvc', ['actionLogEntity', function (actionLogEntity) {
     
-    var actionLogs;
     this.getList = function (succsessCallBack) {
-        if (!actionLogs) {
-            init();
-        }
-        succsessCallBack(actionLogs);
+        actionLogEntity.get(function(data){
+            succsessCallBack(data);
+        });
+        
     };
 
-    this.addAction = function (actioName, item) {
-        var newLog = angular.copy(item);
-        newLog.action = actioName;
-        newLog.time = new Date().getTime();
-        actionLogs.push(newLog);
-        LocalStorageSvc.set('action-log', actionLogs);
-        console.log('add action:' + newLog.action );
-    }    
+ 
   
     function init() {
-        actionLogs = LocalStorageSvc.get('action-log') ? LocalStorageSvc.get('action-log') : [] ;
+       
     }
     init();
 }]);
